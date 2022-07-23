@@ -1,10 +1,10 @@
-const Annotations = require("../models/AnnotationData");
+const NewUser = require("../models/NewUserData");
 
 module.exports = {
   async read(req, res) {
-    const annotationsList = await Annotations.find();
+    const newUser = await NewUser.find();
 
-    return res.json(annotationsList);
+    return res.json(newUser);
   },
 
   async create(req, res) {
@@ -13,7 +13,7 @@ module.exports = {
     if (!name || !email || !password || !birthDate) {
       return res.status(400).json({ err: "Preencha todos os campos" });
     }
-    const annotationCreated = await Annotations.create({
+    const newUser = await NewUser.create({
       name,
       email,
       password,
@@ -24,9 +24,9 @@ module.exports = {
 
   async delete(req, res) {
     const { id } = req.params;
-    const annotationDeleted = await Annotations.findOneAndDelete({ _id: id });
-    if (annotationDeleted) {
-      return res.json(annotationDeleted);
+    const newUserDel = await NewUser.findOneAndDelete({ _id: id });
+    if (newUserDel) {
+      return res.json(newUserDel);
     }
     return res.status(401).json({ err: "Registro não encontrado" });
   },

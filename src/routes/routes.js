@@ -1,20 +1,17 @@
 const express = require("express");
 const routes = express.Router();
 
-const AnnotationController = require("../controller/AnnotationController");
-const PriorityController = require("../controller/PriorityController");
-
-routes.post("/annotations", AnnotationController.create);
-
-routes.get("/annotations", AnnotationController.read);
-
-routes.delete("/annotations/:id", AnnotationController.delete);
+const NewUserController = require("../controller/NewUserController");
 
 
+routes.post("/newuser", NewUserController.create);
 
-routes.get('/priority', PriorityController.read)
+routes.get("/newuser", NewUserController.read);
 
-routes.post('/priority/:id', PriorityController.update)
+routes.delete("/newuser/:id", NewUserController.delete);
+
+
+
 
 
 module.exports = routes;

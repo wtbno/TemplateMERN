@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const AnnotationDataSchema = new mongoose.Schema({
+const NewUserDataSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
@@ -9,4 +9,4 @@ const AnnotationDataSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Annotation', AnnotationDataSchema)
+module.exports = mongoose.model('Novo_usuario', NewUserDataSchema)
