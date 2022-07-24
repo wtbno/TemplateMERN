@@ -2,8 +2,7 @@
 
 const mongoose = require("mongoose");
 
-const dbConfig =("mongodb://localhost:27017/template-mern")
-  
+const dbConfig = "mongodb://localhost:27017/template-mern";
 
 const connection = mongoose.connect(
   dbConfig,
@@ -12,9 +11,12 @@ const connection = mongoose.connect(
     useUnifiedTopology: "true",
   },
   function (err) {
-  if(err){
-    console.log(err);
-  }else{console.log('MongoDB connected');}}
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("MongoDB connected");
+    }
+  }
 );
 
 module.exports = connection;

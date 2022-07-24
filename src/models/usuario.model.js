@@ -20,4 +20,4 @@ DataSchema.pre("save", function (next) {
 });
 const usuarios = mongoose.model("Novo_usuario", DataSchema);
 
-module.exports = usuarios
+module.exports = usuarios;
