@@ -35,7 +35,14 @@ module.exports = {
 
   async delete(req, res) {
     const { _id } = req.params;
-    const user = await Usuario.findByIdAndDelete({_id});
+    const user = await Usuario.findByIdAndDelete({ _id });
+    return res.json(user);
+  },
+
+  async update(req, res) {
+    const { _id, name, email, password } = req.body;
+    const data = { name, email, password };
+    const user = await Usuario.findByIdAndUpdate({_id},data,{ new: true });
     return res.json(user);
   },
 };
