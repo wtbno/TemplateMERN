@@ -1,14 +1,14 @@
 const express = require("express");
 const routes = express.Router();
 
-const NewUserController = require("../controller/NewUserController");
+const UsuarioController = require("../controller/usuarios.controller");
 
 
-routes.post("/newuser", NewUserController.create);
+routes.post("/usuario", UsuarioController.create);
 
-routes.get("/newuser", NewUserController.read);
+routes.get("/usuario", UsuarioController.read);
 
-routes.delete("/newuser/:id", NewUserController.delete);
+routes.delete("/usuario/:id", UsuarioController.delete);
 
 
 
