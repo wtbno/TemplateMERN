@@ -1,10 +1,15 @@
 const Usuario = require("../models/usuario.model");
 
 module.exports = {
-  async read(req, res) {
+  async index(req, res) {
     const usuario = await Usuario.find();
 
     return res.json(usuario);
+  },
+  async details(req, res) {
+    const { _id } = req.params;
+    const user = await Usuario.findOne({ _id });
+    res.json(user);
   },
 
   async create(req, res) {
@@ -23,17 +28,14 @@ module.exports = {
     const user = Usuario.findOne({ email });
     if (!usuario) {
       data = { name, email, password };
-      user =  Usuario.create(data)
+      user = Usuario.create(data);
     }
     return res.status(201).json("Usuário criado com sucesso");
   },
 
   async delete(req, res) {
-    const { id } = req.params;
-    const usuarioDel = Usuario.findOneAndDelete({ _id: id });
-    if (usuarioDel) {
-      return res.json(usuarioDel);
-    }
-    return res.status(401).json({ err: "Registro não encontrado" });
+    const { _id } = req.params;
+    const user = await Usuario.findByIdAndDelete({_id});
+    return res.json(user);
   },
 };
