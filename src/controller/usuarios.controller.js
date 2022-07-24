@@ -42,7 +42,7 @@ module.exports = {
   async update(req, res) {
     const { _id, name, email, password } = req.body;
     const data = { name, email, password };
-    const user = await Usuario.findByIdAndUpdate({_id},data,{ new: true });
+    const user = await Usuario.findOneAndUpdate({_id},data,{ new: true });
     return res.json(user);
   },
 };
