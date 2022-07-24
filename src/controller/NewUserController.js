@@ -24,7 +24,7 @@ module.exports = {
 
   async delete(req, res) {
     const { id } = req.params;
-    const newUserDel = await NewUser.findOneAndDelete({ _id: id });
+    const newUserDel = NewUser.findOneAndDelete({ _id: id });
     if (newUserDel) {
       return res.json(newUserDel);
     }
